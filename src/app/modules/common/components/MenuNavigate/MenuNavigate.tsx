@@ -31,8 +31,8 @@ const MenuNavigate = () => {
       <div className="md:mt-5 mt-1 p-2 h-[370px] ">
         {activeTab === "COMICS" && (
           <div className="h-[370px] max-w-full mx-auto">
-            <Carousel className="h-full">
-              <div className="relative h-[370px]">
+            <Carousel className="h-[300px]">
+              <div className="relative h-[300px]">
                 <Image
                   className="rounded-lg object-contain w-full h-full"
                   src="https://i.annihil.us/u/prod/marvel/i/mg/2/00/4e78dcbabf40a.jpg"
@@ -40,7 +40,7 @@ const MenuNavigate = () => {
                   layout="fill"
                 />
               </div>
-              <div className="relative h-[370px]">
+              <div className="relative h-[300px]">
                 <Image
                   className="rounded-lg object-contain w-full h-full"
                   src="https://i.annihil.us/u/prod/marvel/i/mg/2/00/4e78dcbabf40a.jpg"
@@ -54,7 +54,7 @@ const MenuNavigate = () => {
         {activeTab === "SERIES" && (
           <div className="h-[370px] max-w-full mx-auto">
             <Carousel className="h-full">
-              <div className="relative h-[370px]">
+              <div className="relative h-[300px]">
                 <Image
                   className="rounded-lg object-contain w-full h-full"
                   src="https://i.annihil.us/u/prod/marvel/i/mg/2/00/4e78dcbabf40a.jpg"
@@ -62,7 +62,7 @@ const MenuNavigate = () => {
                   layout="fill"
                 />
               </div>
-              <div className="relative h-[370px]">
+              <div className="relative h-[300px]">
                 <Image
                   className="rounded-lg object-contain w-full h-full"
                   src="https://i.annihil.us/u/prod/marvel/i/mg/2/00/4e78dcbabf40a.jpg"
@@ -76,7 +76,7 @@ const MenuNavigate = () => {
         {activeTab === "EVENTOS" && (
           <div className="h-[370px] max-w-full mx-auto">
             <Carousel className="h-full">
-              <div className="relative h-[370px]">
+              <div className="relative h-[300px]">
                 <Image
                   className="rounded-lg object-contain w-full h-full"
                   src="https://i.annihil.us/u/prod/marvel/i/mg/2/00/4e78dcbabf40a.jpg"
@@ -84,7 +84,7 @@ const MenuNavigate = () => {
                   layout="fill"
                 />
               </div>
-              <div className="relative h-[370px]">
+              <div className="relative h-[300px]">
                 <Image
                   className="rounded-lg object-contain w-full h-full"
                   src="https://i.annihil.us/u/prod/marvel/i/mg/2/00/4e78dcbabf40a.jpg"
@@ -98,7 +98,7 @@ const MenuNavigate = () => {
         {activeTab === "HISTORIAS" && (
           <div className="h-[370px] max-w-full mx-auto">
             <Carousel className="h-full">
-              <div className="relative h-[370px]">
+              <div className="relative h-[300px]">
                 <Image
                   className="rounded-lg object-contain w-full h-full"
                   src="https://i.annihil.us/u/prod/marvel/i/mg/2/00/4e78dcbabf40a.jpg"
@@ -106,7 +106,7 @@ const MenuNavigate = () => {
                   layout="fill"
                 />
               </div>
-              <div className="relative h-[370px]">
+              <div className="relative h-[300px]">
                 <Image
                   className="rounded-lg object-contain w-full h-full"
                   src="https://i.annihil.us/u/prod/marvel/i/mg/2/00/4e78dcbabf40a.jpg"
