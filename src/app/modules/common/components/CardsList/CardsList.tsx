@@ -1,51 +1,74 @@
-import React from "react"
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React, { useEffect } from "react"
 import Card from "../Card/Card"
+import axios from "axios"
+import { getQueryParamsApi } from "@/services/query-params"
+
+const BASE_URL = "https://gateway.marvel.com/v1/public"
 
 const CardsList = () => {
-  const cardsList = [
-    {
-      id: 1,
-      image: "https://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg",
-      tittle: "3-D Man",
-      description:
-        "Rick Jones has been Hulk's best bud since day one, but now he's more than a friend...he's a teammate! Transformed by a Gamma energy explosion, A-Bomb's thick, armored skin is just as strong and powerful as it is blue. And when he curls into action, he uses it like a giant bowling ball of destruction!",
-    },
-    {
-      id: 2,
-      image: "https://i.annihil.us/u/prod/marvel/i/mg/3/20/5232158de5b16.jpg",
-      tittle: "A-Bomb (HAS)",
-      description:
-        "Rick Jones has been Hulk's best bud since day one, but now he's more than a friend...he's a teammate! Transformed by a Gamma energy explosion, A-Bomb's thick, armored skin is just as strong and powerful as it is blue. And when he curls into action, he uses it like a giant bowling ball of destruction!",
-    },
-    {
-      id: 3,
-      image: "https://i.annihil.us/u/prod/marvel/i/mg/6/20/52602f21f29ec.jpg",
-      tittle: "A.I.M.",
-      description:
-        "Rick Jones has been Hulk's best bud since day one, but now he's more than a friend...he's a teammate! Transformed by a Gamma energy explosion, A-Bomb's thick, armored skin is just as strong and powerful as it is blue. And when he curls into action, he uses it like a giant bowling ball of destruction!",
-    },
-    {
-      id: 4,
-      image: "https://i.annihil.us/u/prod/marvel/i/mg/a/f0/5202887448860.jpg",
-      tittle: "Abomination (Emil Blonsky)",
-      description:
-        "Rick Jones has been Hulk's best bud since day one, but now he's more than a friend...he's a teammate! Transformed by a Gamma energy explosion, A-Bomb's thick, armored skin is just as strong and powerful as it is blue. And when he curls into action, he uses it like a giant bowling ball of destruction!",
-    },
-  ]
-  const renderCards = cardsList.map((card) => {
+  useEffect(() => {
+    getCharacters(0, 20)
+  }, [])
+
+  const [characters, setCharacters] = React.useState([])
+
+  const [loading, setLoading] = React.useState(false)
+
+  const getCharacters = async (
+    offset: number,
+    limit: number,
+    nameStartsWith?: string | null,
+    series?: string,
+    comics?: string
+  ) => {
+    let url = `${BASE_URL}/characters?${getQueryParamsApi()}&limit=${limit}&offset=${offset}`
+    setLoading(true)
+
+    if (nameStartsWith) {
+      url = `${url}&nameStartsWith=${nameStartsWith}`
+    }
+
+    if (series) {
+      url = `${url}&series=${series}`
+    }
+
+    if (comics) {
+      url = `${url}&comics=${comics}`
+    }
+
+    try {
+      const response = await axios.get(url)
+      setCharacters(response.data.data.results)
+      setLoading(false)
+      return response.data.data
+    } catch (error) {
+      console.error("Error fetching characters:", error)
+      throw error
+    }
+  }
+
+  const renderCards = characters.map((card: any) => {
     return (
       <Card
         key={card.id}
-        image={card.image}
-        tittle={card.tittle}
+        image={card.thumbnail.path + "." + card.thumbnail.extension}
+        tittle={card.name}
         description={card.description}
       />
     )
   })
 
   return (
-    <div className="bg-stone-900 md:grid md:grid-cols-5 flex flex-col lg:grid-cols-4 ">
-      {renderCards}
+    <div>
+      {loading && (
+        <div className="flex items-center justify-center h-screen">
+          <div className="w-16 h-16 border-4 border-blue-500 border-dashed rounded-full animate-spin"></div>
+        </div>
+      )}
+      <div className="bg-stone-900 md:grid md:grid-cols-2 flex flex-col lg:grid-cols-4 ">
+        {renderCards}
+      </div>
     </div>
   )
 }

@@ -5,10 +5,10 @@ import Link from "next/link"
 
 const SecondView = () => {
   return (
-    <div className="flex justify-center items-center bg-stone-900">
-      <div className="flex flex-col w-[794px] h-[1098px] bg-stone-800 mt-4 rounded-lg">
+    <div className="flex justify-center items-center bg-stone-900 md:w-full">
+      <div className="flex flex-col md:w-[794px] w-[404px] h-[1170px] bg-stone-800 mt-4 rounded-lg">
         <div className="flex items-center mt-5 ml-5 justify-between">
-          <Link href="/Home">
+          <Link href="/home">
           <button className="hover:bg-stone-600 w-16 h-16 text-center text-white text-4xl bg-stone-700 rounded-full">
             &#8592;
           </button>
@@ -26,8 +26,8 @@ const SecondView = () => {
             height={400}
           />
         </div>
-        <div className="flex justify-center items-center p-8 text-white">
-          <p>
+        <div className="flex justify-center items-center p-6 text-white ">
+          <p className="md:w-[730px] w-[400px] p-6">
             {" "}
             Rick Jones has been Hulks best bud since day one, but now hes more
             than a friend...hes a teammate! Transformed by a Gamma energy
