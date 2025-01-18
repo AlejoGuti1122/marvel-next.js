@@ -5,13 +5,13 @@ import Link from "next/link"
 
 const SecondView = () => {
   return (
-    <div className="flex justify-center items-center bg-stone-900 md:w-full">
+    <div className="flex justify-center items-center bg-stone-900 md:w-full w-full">
       <div className="flex flex-col md:w-[794px] w-[404px] h-[1170px] bg-stone-800 mt-4 rounded-lg">
         <div className="flex items-center mt-5 ml-5 justify-between">
           <Link href="/home">
-          <button className="hover:bg-stone-600 w-16 h-16 text-center text-white text-4xl bg-stone-700 rounded-full">
-            &#8592;
-          </button>
+            <button className="hover:bg-stone-600 w-20 h-20 text-center text-white text-4xl bg-stone-700 rounded-full flex items-center justify-center">
+              &#8592;
+            </button>
           </Link>
           <p className="text-white text-2xl font-bold text-center flex-grow mr-16">
             A-Bomb (HAS)
