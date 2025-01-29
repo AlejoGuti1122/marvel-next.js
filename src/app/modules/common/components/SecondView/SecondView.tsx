@@ -6,7 +6,7 @@ import Link from "next/link"
 const SecondView = () => {
   return (
     <div className="flex justify-center items-center bg-stone-900 md:w-full w-full">
-      <div className="flex flex-col md:w-[794px] w-[404px] h-[1170px] bg-stone-800 mt-4 rounded-lg">
+      <div className="flex flex-col md:w-[793px] w-[404px] h-[1170px] bg-stone-800 mt-4 rounded-lg">
         <div className="flex items-center mt-5 ml-5 justify-between">
           <Link href="/home">
             <button className="hover:bg-stone-600 w-20 h-20 text-center text-white text-4xl bg-stone-700 rounded-full flex items-center justify-center">
